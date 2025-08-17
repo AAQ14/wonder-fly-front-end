@@ -3,12 +3,10 @@ import React from 'react'
 import { useState } from 'react'
 import { create } from '../../services/countryService'
 
-//Consts👇
-const Countries = () => {
-  return (
-    <div>Countries</div>
-  )
+//Countries👇
+const CountriesForm = ({setCountries}) => {
+
 }
 
 //Exports👇
-export default Countries
+export default CountriesForm
