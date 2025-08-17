@@ -13,6 +13,31 @@ const create = async(data) =>{
     }
 }
 
+const index = async ()=>{
+    try {
+        const url = `${baseURL}/flights`
+        const res = await axios.get(url)
+        return res.data
+    } catch (err) {
+        console.log(err)
+        return err
+    }
+}
+
+const deleteFlight = async (id)=>{
+    try {
+        const url = `${baseURL}/flights/delete/${id}`
+        console.log(url)
+        const res = await axios.delete(url)
+        return res
+    } catch (err) {
+        console.log(err)
+        return err
+    }
+}
+
 export {
-    create
+    create,
+    index,
+    deleteFlight
 }

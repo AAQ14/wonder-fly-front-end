@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { create } from "../../../services/flightService";
 
-const FlightForm = ({setFlights}) => {
+const FlightForm = ({getAllFlights, setFormIsShown}) => {
 const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     from: "",
@@ -18,51 +18,51 @@ const [isSubmitting, setIsSubmitting] = useState(false)
 
   async function handleSubmit(evt) {
     evt.preventDefault()
-    // if(isSubmitting)return
-    // setIsSubmitting(true)
+    if(isSubmitting)return
+    setIsSubmitting(true)
     const res = await create(formData)
-    if(res.status == 200){
-      console.log("200")
-    }
+    
     if(res.status=== 500){
       console.log("invalid data")
     }
-    setFlights(formData)
+    getAllFlights()
     setFormData({
     from: "",
     to: "",
     Date: "",
     price: "",
   })
+  if(res.status == 201){
+      setFormIsShown(false)
+    }
+    setIsSubmitting(false)
   }
 
   return (
     <>
-      <h3>Creating a flights</h3>
+      <h3>Creating a flight</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="from">From: </label>
-        <input
-          name="from"
-          id="from"
-          value={formData.from}
-          onChange={handleChange}
-        ></input>
+        <select name="from" value={formData.from} onChange={handleChange}>
+          <option value="68a1479317f3896ce2244efd" >Bahrain</option>
+          <option value="68a17e3a0b393e504857bf44" >China</option>
+          <option value="68a1930c64bc454b60482035" >Jordan</option>
+          <option value="68a180050b393e504857bf46" >Italy</option>
+          <option value="68a1932164bc454b60482037" >Mexico</option>
+          <option value="68a1932664bc454b60482039"  >Peru</option>
+          <option value="68a1933164bc454b6048203b"  >Rio de Janeiro</option>
+        </select>
 
         <label htmlFor="to">to: </label>
-        <select value={formData.to}>
-          <option>Bahrain</option>
-          <option>Bahrain</option>
-          <option>Bahrain</option>
-          <option>Bahrain</option>
-          <option>Bahrain</option>
-          <option>Bahrain</option>
+        <select name="to" value={formData.to} onChange={handleChange}>
+          <option value="68a1479317f3896ce2244efd" >Bahrain</option>
+          <option value="68a17e3a0b393e504857bf44" >China</option>
+          <option value="68a1930c64bc454b60482035" >Jordan</option>
+          <option value="68a180050b393e504857bf46" >Italy</option>
+          <option value="68a1932164bc454b60482037" >Mexico</option>
+          <option value="68a1932664bc454b60482039"  >Peru</option>
+          <option value="68a1933164bc454b6048203b"  >Rio de Janeiro</option>
         </select>
-        <input
-          name="to"
-          id="to"
-          value={formData.to}
-          onChange={handleChange}
-        ></input>
 
         <label htmlFor="Date">Date: </label>
         <input
@@ -77,6 +77,7 @@ const [isSubmitting, setIsSubmitting] = useState(false)
         <input
           name="price"
           id="price"
+          type="number"
           value={formData.price}
           onChange={handleChange}
         ></input>
