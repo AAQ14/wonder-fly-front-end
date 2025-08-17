@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import FlightForm from './FlightForm/FlightForm'
 import { index, deleteFlight } from '../../services/flightService'
+import { index, deleteFlight } from '../../services/flightService'
 
 const Flights = () => {
   const [flights, setFlights] = useState([])
