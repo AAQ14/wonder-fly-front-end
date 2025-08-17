@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { create } from "../../../services/flightService";
 
-const FlightForm = ({setFlights}) => {
+const FlightForm = ({getAllFlights, setFormIsShown}) => {
 const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     from: "",
@@ -18,27 +18,29 @@ const [isSubmitting, setIsSubmitting] = useState(false)
 
   async function handleSubmit(evt) {
     evt.preventDefault()
-    // if(isSubmitting)return
-    // setIsSubmitting(true)
+    if(isSubmitting)return
+    setIsSubmitting(true)
     const res = await create(formData)
-    if(res.status == 200){
-      console.log("200")
-    }
+    
     if(res.status=== 500){
       console.log("invalid data")
     }
-    setFlights(formData)
+    getAllFlights()
     setFormData({
     from: "",
     to: "",
     Date: "",
     price: "",
   })
+  if(res.status == 201){
+      setFormIsShown(false)
+    }
+    setIsSubmitting(false)
   }
 
   return (
     <>
-      <h3>Creating a flights</h3>
+      <h3>Creating a flight</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="from">From: </label>
         <select name="from" value={formData.from} onChange={handleChange}>
