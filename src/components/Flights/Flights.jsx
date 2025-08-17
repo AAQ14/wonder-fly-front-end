@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import FlightForm from './FlightForm/FlightForm'
-import { index } from '../../services/flightService'
+import { index, deleteFlight } from '../../services/flightService'
 
 const Flights = () => {
   const [flights, setFlights] = useState([])
@@ -22,14 +22,15 @@ const Flights = () => {
   return (
     <>
     <h3>Flights</h3>
-    {flights.map(flight => (
+    {flights? flights.map(flight => (
       <>
       <p>from: {flight.from}</p>
       <p>to: {flight.to}</p>
       <p>date: {flight.date}</p>
       <p>price: {flight.price}</p>
+      <button onClick={()=>{deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
       </>
-    ))}
+    )) : <p>no flights</p>}
     <p>create</p>
     <FlightForm setFlights={setFlights}/>
     </>
