@@ -7,6 +7,7 @@ const NavBar = () => {
     <Link to="/">HOME</Link>
     <Link to="/flights">Flights</Link>
     <Link to="/login">Login</Link>
+    <Link to="/signup">Signup</Link>
     </>
   )
 }

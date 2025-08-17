@@ -17,7 +17,7 @@ function LoginForm({ onLogin }) {
       })
       localStorage.setItem('token', res.data.token)
       onLogin(res.data.token)
-      navigate('/pets')
+      navigate('/flights')
     } catch (err) {
       alert(err.response?.data?.message || 'Login failed')
     }
@@ -27,15 +27,18 @@ function LoginForm({ onLogin }) {
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
       <input 
+       type="email"
         placeholder="email"
         value={email}
         onChange={event => setemail(event.target.value)}
+        required
       />
       <input 
         placeholder="Password"
         type="password"
         value={password}
         onChange={event => setPassword(event.target.value)}
+        required
       />
       <button type="submit">Login</button>
     </form>
