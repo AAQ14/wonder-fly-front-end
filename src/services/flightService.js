@@ -13,6 +13,18 @@ const create = async(data) =>{
     }
 }
 
+const index = async ()=>{
+    try {
+        const url = `${baseURL}/flights`
+        const res = await axios.get(url)
+        return res.data
+    } catch (err) {
+        console.log(err)
+        return err
+    }
+}
+
 export {
-    create
+    create,
+    index
 }
