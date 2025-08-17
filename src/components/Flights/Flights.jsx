@@ -24,7 +24,7 @@ const Flights = () => {
     <>
     
     {formIsShown ? 
-    <FlightForm setFlights={setFlights} setFormIsShown={setFormIsShown}/> :
+    <FlightForm getAllFlights={getAllFlights} setFormIsShown={setFormIsShown}/> :
     <>
     <br />
     <button onClick={()=>setFormIsShown(true)}>Add Flight</button>
