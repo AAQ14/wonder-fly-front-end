@@ -1,12 +1,16 @@
 //Imports👇
 import React from 'react'
 import { useState } from 'react'
-import { create } from '../../services/countryService'
+import CountriesForm from './CountriesForm/CountryForm'
 
 //Consts👇
 const Countries = () => {
+  const [Countries,setCountries]=useState([])
   return (
-    <div>Countries</div>
+    <>
+    <h3>Create Country</h3>
+    <CountriesForm setCountries={setCountries}/>
+    </>
   )
 }
 
