@@ -84,6 +84,7 @@ const [isSubmitting, setIsSubmitting] = useState(false)
 
         <button type="submit">Add flight</button>
       </form>
+      <button onClick={()=>setFormIsShown(false)}>Back</button>
     </>
   );
 };
