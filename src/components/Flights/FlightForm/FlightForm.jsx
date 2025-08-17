@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { create } from "../../../services/flightService";
+import { create,  flightDetails, updateFlight} from "../../../services/flightService";
 
-const FlightForm = ({getAllFlights, setFormIsShown}) => {
+const FlightForm = ({getAllFlights, setFormIsShown, flightCreated, flightId}) => {
 const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     from: "",
@@ -10,6 +10,21 @@ const [isSubmitting, setIsSubmitting] = useState(false)
     Date: "",
     price: "",
   });
+
+  const getFlightDetails = async()=>{
+    try {
+      const flight = await flightDetails(flightId)
+      setFormData(flight)
+    } catch (err) {
+      console.log(err)
+    }
+  } 
+
+  if(flightCreated){
+    useEffect(()=>{
+      getFlightDetails()
+    }, [])
+  }
 
   const handleChange = (evt)=>{
     setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -20,8 +35,13 @@ const [isSubmitting, setIsSubmitting] = useState(false)
     evt.preventDefault()
     if(isSubmitting)return
     setIsSubmitting(true)
-    const res = await create(formData)
+    let res
     
+    if(flightCreated){
+      res = await updateFlight(flightId, formData)
+    }else {
+      res = await create(formData)
+    }
     if(res.status=== 500){
       console.log("invalid data")
     }
@@ -82,7 +102,7 @@ const [isSubmitting, setIsSubmitting] = useState(false)
           onChange={handleChange}
         ></input>
 
-        <button type="submit">Add flight</button>
+        <button type="submit">Submit</button>
       </form>
       <button onClick={()=>setFormIsShown(false)}>Back</button>
     </>
