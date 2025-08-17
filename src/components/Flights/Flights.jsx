@@ -22,15 +22,15 @@ const Flights = () => {
   return (
     <>
     <h3>Flights</h3>
-    {flights.map(flight => (
+    {flights? flights.map(flight => (
       <>
       <p>from: {flight.from}</p>
       <p>to: {flight.to}</p>
       <p>date: {flight.date}</p>
       <p>price: {flight.price}</p>
-      <button onClick={()=>deleteFlight(flight._id)}>delete flight</button>
+      <button onClick={()=>{deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
       </>
-    ))}
+    )) : <p>no flights</p>}
     <p>create</p>
     <FlightForm setFlights={setFlights}/>
     </>
