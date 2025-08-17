@@ -6,8 +6,6 @@ import { index, deleteFlight } from '../../services/flightService'
 const Flights = () => {
   const [flights, setFlights] = useState([])
   const [formIsShown, setFormIsShown] = useState(false)
-  const [flightCreated, setFlightCreated] = useState(false)
-  const [flightId, setFlightId] = useState('')
 
   const getAllFlights = async () =>{
     try {
@@ -26,7 +24,7 @@ const Flights = () => {
     <>
     
     {formIsShown ? 
-    <FlightForm getAllFlights={getAllFlights} setFormIsShown={setFormIsShown} flightCreated={flightCreated} flightId={flightId}/> :
+    <FlightForm getAllFlights={getAllFlights} setFormIsShown={setFormIsShown}/> :
     <>
     <br />
     <button onClick={()=>setFormIsShown(true)}>Add Flight</button>
@@ -37,7 +35,7 @@ const Flights = () => {
       <p>to: {flight.to}</p>
       <p>date: {flight.date}</p>
       <p>price: {flight.price}</p>
-      <button onClick={()=>{setFormIsShown(true);setFlightId(flight._id);setFlightCreated(true)}}>edit flight</button>
+      <button onClick={()=>setFormIsShown(true)}>edit flight</button>
       <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
       </div>
     )) : <p>no flights</p>}
