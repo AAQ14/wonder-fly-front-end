@@ -24,7 +24,20 @@ const index = async ()=>{
     }
 }
 
+const deleteFlight = async (id)=>{
+    try {
+        const url = `${baseURL}/flights/delete/${id}`
+        console.log(url)
+        const res = await axios.delete(url)
+        return res
+    } catch (err) {
+        console.log(err)
+        return err
+    }
+}
+
 export {
     create,
-    index
+    index,
+    deleteFlight
 }
