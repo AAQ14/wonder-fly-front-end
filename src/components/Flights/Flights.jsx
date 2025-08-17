@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import FlightForm from './FlightForm/FlightForm'
 import { index, deleteFlight } from '../../services/flightService'
-import { index, deleteFlight } from '../../services/flightService'
 
 const Flights = () => {
   const [flights, setFlights] = useState([])
@@ -36,6 +35,7 @@ const Flights = () => {
       <p>to: {flight.to}</p>
       <p>date: {flight.date}</p>
       <p>price: {flight.price}</p>
+      <button onClick={()=>setFormIsShown(true)}>edit flight</button>
       <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
       </div>
     )) : <p>no flights</p>}
