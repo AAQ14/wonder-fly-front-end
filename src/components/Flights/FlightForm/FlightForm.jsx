@@ -2,14 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { create } from "../../../services/flightService";
 
-const FlightForm = ({getAllFlights, setFormIsShown}) => {
+const FlightForm = ({getAllFlights, handleFormView, selected, setFormIsShown}) => {
 const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formData, setFormData] = useState({
+const initialState = {
     from: "",
     to: "",
     Date: "",
     price: "",
-  });
+  }
+  const [formData, setFormData] = useState(
+    selected ? selected : initialState
+  );
 
   const handleChange = (evt)=>{
     setFormData({...formData, [evt.target.name]: evt.target.value})
