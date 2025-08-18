@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { create } from "../../../services/flightService";
+import { create, updateFlight } from "../../../services/flightService";
 
 const FlightForm = ({
   getAllFlights,
   handleFormView,
   selected,
   setFormIsShown,
+  setSelected
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const initialState = {
@@ -16,15 +17,22 @@ const FlightForm = ({
     price: "",
   };
   const [formData, setFormData] = useState(selected ? selected : initialState);
+  // const flights = getAllFlights();
+  // console.log("this are flights", flights)
+  
+  // const flightId = flights.find((flight) => flight._id == selected._id)
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
     console.log(formData);
   };
 
-  async function handleSubmit(evt) {}
-  async function handleAddFlight(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
+    selected ? handleUpdateFlight(formData) : handleAddFlight();
+  }
+
+  async function handleAddFlight(evt) {
     if (isSubmitting) return;
     setIsSubmitting(true);
     const res = await create(formData);
@@ -45,6 +53,22 @@ const FlightForm = ({
     setIsSubmitting(false);
   }
 
+  async function handleUpdateFlight(formData) {
+    try {
+      const updatedFlight = await updateFlight(selected._id, formData);
+
+      if (updatedFlight.err) {
+        throw new Error(updatedFlight.err);
+      }
+      if (updatedFlight.status == 200) {
+      setFormIsShown(false);
+      getAllFlights();
+      setSelected(null)
+    }
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <>
       <h3>Creating a flight</h3>
@@ -89,7 +113,9 @@ const FlightForm = ({
           onChange={handleChange}
         ></input>
 
-        <button type="submit">Add flight</button>
+        <button type="submit">
+          {selected ? "Update flight" : "Add flight"}
+        </button>
       </form>
     </>
   );

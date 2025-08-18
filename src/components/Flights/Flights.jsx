@@ -34,7 +34,7 @@ const Flights = () => {
     <>
     
     {formIsShown ? 
-    <FlightForm getAllFlights={getAllFlights} handleFormView={handleFormView} selected={selected}/> :
+    <FlightForm getAllFlights={getAllFlights} handleFormView={handleFormView} selected={selected} setFormIsShown={setFormIsShown} setSelected={setSelected}/> :
     <>
     <br />
     <button onClick={()=>setFormIsShown(true)}>Add Flight</button>
@@ -45,7 +45,7 @@ const Flights = () => {
       <p>to: {flight.to}</p>
       <p>date: {flight.date}</p>
       <p>price: {flight.price}</p>
-      <button onClick={()=>{setFormIsShown(true);handleSelect(flight)}}>edit flight</button>
+      <button onClick={()=>{handleFormView(flight._id);setSelected(selected)}}>edit flight</button>
       <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
       </div>
     )) : <p>no flights</p>}
