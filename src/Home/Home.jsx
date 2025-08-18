@@ -1,5 +1,10 @@
+import '../style/home.css'
 function Home() {
-  return <h2>Home Page</h2>
+  return(
+    <div className='container'>
+    <h1>flyWonder</h1>
+    </div>
+  ) 
 }
 
 export default Home
