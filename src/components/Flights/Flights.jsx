@@ -40,15 +40,15 @@ const Flights = () => {
     <FlightForm getAllFlights={getAllFlights} handleFormView={handleFormView} selected={selected} setFormIsShown={setFormIsShown} setSelected={setSelected}/> :
     <>
     <br />
-    <button onClick={()=>setFormIsShown(true)}>Add Flight</button>
+    <button onClick={handleFormView}>Add Flight</button>
     <h3>Flights</h3>
     {flights.length? flights.map((flight, index) => (
       <div key={index} style={{cursor: 'pointer', color: '#7a57c5ff'}} onClick={() =>{console.log(flight); handleSelect(flight)}}>
-      <p>from: {flight.from}</p>
-      <p>to: {flight.to}</p>
-      <p>date: {flight.date}</p>
+      <p>from: {flight.from.country}</p>
+      <p>to: {flight.to.country}</p>
+      <p>date: {flight.date}</p>{console.log(flight.date)}
       <p>price: {flight.price}</p>
-      <button onClick={()=>{handleFormView(flight._id);;handleSelect(flight);}}>edit flight</button>
+      <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
       <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
       </div>
     )) : <p>no flights</p>}

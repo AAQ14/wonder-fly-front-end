@@ -13,7 +13,7 @@ const FlightForm = ({
   const initialState = {
     from: "",
     to: "",
-    Date: "",
+    date: "",
     price: "",
   };
   const [formData, setFormData] = useState(selected ? selected : initialState);
@@ -67,7 +67,7 @@ const FlightForm = ({
   }
   return (
     <>
-      <h3>Creating a flight</h3>
+      <h3> {selected ? "Update the flight" : "Add the flight"}</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="from">From: </label>
         <select name="from" value={formData.from} onChange={handleChange}>
@@ -91,11 +91,11 @@ const FlightForm = ({
           <option value="68a1933164bc454b6048203b">Rio de Janeiro</option>
         </select>
 
-        <label htmlFor="Date">Date: </label>
+        <label htmlFor="date">Date: </label>
         <input
           type="date"
-          name="Date"
-          id="Date"
+          name="date"
+          id="date"
           value={formData.Date}
           onChange={handleChange}
         ></input>
