@@ -1,3 +1,5 @@
+import { jwtDecode } from 'jwt-decode'
+
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router'
 import NavBar from './components/NavBar/NavBar'
