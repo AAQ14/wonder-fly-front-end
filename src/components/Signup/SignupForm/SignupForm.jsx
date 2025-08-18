@@ -48,6 +48,7 @@ function SignUp() {
 
 <label htmlFor="Emai">Email</label>
       <input 
+      type='email'
         value={email}
         onChange={event => setEmail(event.target.value)}
         required
