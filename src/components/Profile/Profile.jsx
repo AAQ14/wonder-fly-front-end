@@ -1,31 +1,50 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { userDetails } from "../../services/userService";
+import ProfileForm from "./ProfileForm/ProfileForm";
+import { FadeLoader } from "react-spinners";
 
 const Profile = ({ userId }) => {
   const [user, setUser] = useState();
+  const [formIsShown, setFormIsShown] = useState(null);
 
   const getUserDetails = async () => {
-    const details = await userDetails(userId);
-    setUser(details);
+    try {
+      const details = await userDetails(userId);
+      setUser(details);
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   useEffect(() => {
     getUserDetails();
   }, []);
 
-  console.log("this is user", user.firstName);
+  const handleFormView = () => {
+    setFormIsShown(!formIsShown);
+  };
+
+  // console.log("this is user", user);
 
   return (
     <>
+      {" "}
       <h1>My profile</h1>
-      {user.map((one) => (
-        <>
-          <p>First name: {one.firstName}</p>
-          <p>Last name: {one.lastName}</p>
-          <p>Email: {one.email}</p>
-        </>
-      ))}
-      {/* <h4>Email: {user.email}</h4> */}
+      {formIsShown ? (
+        <ProfileForm  handleFormView={handleFormView}  user={user}/>
+      ) : user ? (
+        user.map((info, index) => (
+          <div key={index}>
+            <p>First name: {info.firstName}</p>
+            <p>Last name: {info.lastName}</p>
+            <p>Email: {info.email}</p>
+            <button onClick={handleFormView}>Update info</button>
+          </div>
+        ))
+      ) : (
+        <FadeLoader color="#87CEEB" />
+      )}
     </>
   );
 };
