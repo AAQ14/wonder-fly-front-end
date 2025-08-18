@@ -113,6 +113,7 @@ const FlightForm = ({
           {selected ? "Update flight" : "Add flight"}
         </button>
       </form>
+      <button onClick={()=>setFormIsShown(false)}>BACK</button>
     </>
   );
 };
