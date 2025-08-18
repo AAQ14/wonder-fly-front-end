@@ -4,11 +4,11 @@ import { create, updateFlight } from "../../../services/flightService";
 
 const FlightForm = ({
   getAllFlights,
-  handleFormView,
   selected,
   setFormIsShown,
   setSelected
 }) => {
+  console.log("this is selected", selected)
   const [isSubmitting, setIsSubmitting] = useState(false);
   const initialState = {
     from: "",
@@ -17,10 +17,6 @@ const FlightForm = ({
     price: "",
   };
   const [formData, setFormData] = useState(selected ? selected : initialState);
-  // const flights = getAllFlights();
-  // console.log("this are flights", flights)
-  
-  // const flightId = flights.find((flight) => flight._id == selected._id)
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });

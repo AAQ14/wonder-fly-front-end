@@ -25,6 +25,9 @@ const Flights = () => {
     setSelected(flight)
   }
 
+    // console.log("this is 11: ",selected)
+
+
   const handleFormView = (flight)=>{
     if(!flight._id)setSelected(null)
     setFormIsShown(!formIsShown)
@@ -45,7 +48,7 @@ const Flights = () => {
       <p>to: {flight.to}</p>
       <p>date: {flight.date}</p>
       <p>price: {flight.price}</p>
-      <button onClick={()=>{handleFormView(flight._id);setSelected(selected)}}>edit flight</button>
+      <button onClick={()=>{handleFormView(flight._id);;handleSelect(flight);}}>edit flight</button>
       <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
       </div>
     )) : <p>no flights</p>}
