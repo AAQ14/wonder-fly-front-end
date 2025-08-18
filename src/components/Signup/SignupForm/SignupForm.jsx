@@ -32,28 +32,29 @@ function SignUp() {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Sign Up</h2>
+      <label htmlFor="FirstName">First Name</label>
       <input
-      placeholder='First Name'
       value={firstName}
       onChange={event=>setFirstName(event.target.value)}
       required
       />
-      
+
+      <label htmlFor="LastName">Last Name</label>
   <input
-      placeholder='Last Name'
       value={lastName}
       onChange={event=>setLastName(event.target.value)}
       required
       />
 
+<label htmlFor="Emai">Email</label>
       <input 
-        placeholder="Email"
         value={email}
         onChange={event => setEmail(event.target.value)}
         required
       />
+
+      <label htmlFor="Password">Password</label>
       <input 
-        placeholder="Password"
         type="password"
         value={password}
         onChange={event => setPassword(event.target.value)}

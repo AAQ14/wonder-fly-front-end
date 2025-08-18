@@ -26,20 +26,21 @@ function LoginForm({ onLogin }) {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
+      <label htmlFor="Emai">Email</label>
       <input 
        type="email"
-        placeholder="email"
         value={email}
         onChange={event => setemail(event.target.value)}
         required
       />
+      <label htmlFor="Emai">Password</label>
       <input 
-        placeholder="Password"
         type="password"
         value={password}
         onChange={event => setPassword(event.target.value)}
         required
       />
+      
       <button type="submit">Login</button>
     </form>
   )
