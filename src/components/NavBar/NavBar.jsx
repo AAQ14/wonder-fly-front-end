@@ -1,15 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React from "react";
+import { Link } from "react-router";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <>
-    <Link to="/">Home</Link>
-    <Link to="/flights">Flights</Link>
-    <Link to="/login">Login</Link>
-    <Link to="/signup">Signup</Link>
+      {props.token ? (
+        <>
+          <Link to="/">Home</Link>
+          <Link to="/flights">Flights</Link>
+          <Link to="/profile">My profile</Link>
+        </>
+      ) : (
+        <>
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Signup</Link>
+        </>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
