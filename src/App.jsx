@@ -16,6 +16,7 @@ import './App.css'
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'))
   const [userId, setUserId] = useState('')
+  const [userType, setUserType] = useState('')
 
 
   function handleLogin(newToken) {
@@ -29,9 +30,11 @@ const App = () => {
   }
 
   useEffect(()=>{
+    console.log(token)
      if (token) {
     const decodedToken = jwtDecode(token)
     setUserId(decodedToken.id)
+    setUserType(decodedToken.userType)
     console.log(decodedToken.id)
     console.log(decodedToken)
   }

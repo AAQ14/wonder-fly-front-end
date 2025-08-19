@@ -1,4 +1,5 @@
 import axios from "axios"
+import { data } from "react-router"
 const baseURL= import.meta.env.VITE_BACKEND_URL
 
 const userDetails = async (id)=>{
@@ -9,9 +10,21 @@ const userDetails = async (id)=>{
         return res.data
     } catch (err) {
         console.log(err)
+        return err
     }
 }
 
+const updateUser = async (id,data) =>{
+    try {
+        const url = `${baseURL}/users/update/${id}`
+        const res = await axios.put(url, data)
+        return res
+    } catch (err) {
+        console.log(err)
+        return err
+    }
+}
 export {
-    userDetails
+    userDetails,
+    updateUser
 }

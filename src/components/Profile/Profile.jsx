@@ -1,36 +1,55 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { userDetails } from "../../services/userService";
+import ProfileForm from "./ProfileForm/ProfileForm";
+import { FadeLoader } from "react-spinners";
 import DeleteAccountButton from "./ProfileDeleteButton";
 
 const Profile = ({ userId }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
+  const [formIsShown, setFormIsShown] = useState(null);
 
   const getUserDetails = async () => {
-    const details = await userDetails(userId);
-    setUser(details);
+    try {
+      console.log("USER ID: ", userId)
+      const details = await userDetails(userId);
+    console.log("this is user", details);
+
+      setUser(details);
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   useEffect(() => {
+    console.log("In useEffect()")
     getUserDetails();
-  }, []);
+  }, [userId]);
 
-  console.log("this is user", user.firstName);
+  const handleFormView = () => {
+    setFormIsShown(!formIsShown);
+  };
 
+  
   return (
     <>
       <h1>My profile</h1>
-      {user.map((one) => (
-        <>
-          <p>First name: {one.firstName}</p>
-          <p>Last name: {one.lastName}</p>
-          <p>Email: {one.email}</p>
+      {formIsShown ? (
+        <ProfileForm  handleFormView={handleFormView}  user={user} getUserDetails={getUserDetails} userId={userId}/>
+      ) : Object.keys(user).length ? (
+          <div >
+            <p>First name: {user.firstName}</p>
+            <p>Last name: {user.lastName}</p>
+            <p>Email: {user.email}</p>
           <DeleteAccountButton
           accountId={userId}
           getId={getUserDetails}
           />
-        </>
-      ))}
-      {/* <h4>Email: {user.email}</h4> */}
+            <button onClick={handleFormView}>Update info</button>
+          </div>
+      ) : (
+        <FadeLoader color="#87CEEB" />
+      )}
     </>
   );
 };
