@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { userDetails } from "../../services/userService";
 import ProfileForm from "./ProfileForm/ProfileForm";
 import { FadeLoader } from "react-spinners";
+import DeleteAccountButton from "./ProfileDeleteButton";
 
 const Profile = ({ userId }) => {
   const [user, setUser] = useState({});
@@ -40,6 +41,10 @@ const Profile = ({ userId }) => {
             <p>First name: {user.firstName}</p>
             <p>Last name: {user.lastName}</p>
             <p>Email: {user.email}</p>
+          <DeleteAccountButton
+          accountId={userId}
+          getId={getUserDetails}
+          />
             <button onClick={handleFormView}>Update info</button>
           </div>
       ) : (
