@@ -24,7 +24,20 @@ const updateUser = async (id,data) =>{
         return err
     }
 }
+
+const deleteAccount=async(id)=>{
+    try {
+         const url = `${baseURL}/users/delete/${id}`
+        const response = await axios.delete(url)
+        return response 
+    } catch (error) {
+        return error
+    }
+}
+
+
 export {
     userDetails,
-    updateUser
+    updateUser,
+    deleteAccount
 }

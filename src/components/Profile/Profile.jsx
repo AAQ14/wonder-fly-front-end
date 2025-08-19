@@ -42,8 +42,8 @@ const Profile = ({ userId }) => {
             <p>Last name: {user.lastName}</p>
             <p>Email: {user.email}</p>
           <DeleteAccountButton
-          accountId={userId}
-          getId={getUserDetails}
+          userId={userId}
+          getUserDetails={getUserDetails}
           />
             <button onClick={handleFormView}>Update info</button>
           </div>
