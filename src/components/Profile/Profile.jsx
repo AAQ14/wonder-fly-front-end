@@ -5,7 +5,7 @@ import ProfileForm from "./ProfileForm/ProfileForm";
 import { FadeLoader } from "react-spinners";
 import DeleteAccountButton from "./ProfileDeleteButton";
 
-const Profile = ({ userId }) => {
+const Profile = ({ userId, onLogout }) => {
   const [user, setUser] = useState({});
   const [formIsShown, setFormIsShown] = useState(null);
 
@@ -44,6 +44,7 @@ const Profile = ({ userId }) => {
           <DeleteAccountButton
           userId={userId}
           getUserDetails={getUserDetails}
+          onLogout={onLogout}
           />
             <button onClick={handleFormView}>Update info</button>
           </div>
