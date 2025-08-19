@@ -30,6 +30,7 @@ const App = () => {
   }
 
   useEffect(()=>{
+    console.log(token)
      if (token) {
     const decodedToken = jwtDecode(token)
     setUserId(decodedToken.id)

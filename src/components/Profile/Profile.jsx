@@ -10,7 +10,10 @@ const Profile = ({ userId }) => {
 
   const getUserDetails = async () => {
     try {
+      console.log("USER ID: ", userId)
       const details = await userDetails(userId);
+    console.log("this is user", details);
+
       setUser(details);
     } catch (err) {
       console.log(err);
@@ -18,20 +21,20 @@ const Profile = ({ userId }) => {
   };
 
   useEffect(() => {
+    console.log("In useEffect()")
     getUserDetails();
-  }, []);
+  }, [userId]);
 
   const handleFormView = () => {
     setFormIsShown(!formIsShown);
   };
 
-  console.log("this is user", user);
-
+  
   return (
     <>
       <h1>My profile</h1>
       {formIsShown ? (
-        <ProfileForm  handleFormView={handleFormView}  user={user} userId={userId}/>
+        <ProfileForm  handleFormView={handleFormView}  user={user} getUserDetails={getUserDetails} userId={userId}/>
       ) : Object.keys(user).length ? (
           <div >
             <p>First name: {user.firstName}</p>
