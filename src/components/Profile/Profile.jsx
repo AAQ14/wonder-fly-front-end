@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { userDetails } from "../../services/userService";
+import DeleteAccountButton from "./ProfileDeleteButton";
 
 const Profile = ({ userId }) => {
   const [user, setUser] = useState();
@@ -23,6 +24,10 @@ const Profile = ({ userId }) => {
           <p>First name: {one.firstName}</p>
           <p>Last name: {one.lastName}</p>
           <p>Email: {one.email}</p>
+          <DeleteAccountButton
+          accountId={userId}
+          getId={getUserDetails}
+          />
         </>
       ))}
       {/* <h4>Email: {user.email}</h4> */}
