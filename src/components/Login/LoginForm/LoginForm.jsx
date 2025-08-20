@@ -29,7 +29,7 @@ function LoginForm({ onLogin }) {
     <div className='container'>
     <form onSubmit={handleSubmit}>
       <div className='second'>
-      <h1>Login</h1>
+      <h1 className='title'>Login</h1>
       <br /><br />
       <label htmlFor="Emai">Email</label>
       <br />
@@ -50,7 +50,8 @@ function LoginForm({ onLogin }) {
       />
       <br /><br />
       
-      <button type="submit">Login</button>
+      <button className='Btn' type="submit">Login</button>
+  
     </div>
     </form>
     </div>
