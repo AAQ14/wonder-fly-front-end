@@ -43,6 +43,7 @@ const Flights = ({userType, userId}) => {
   const handleBookTicket = async (flight)=>{
     try {
       await bookFlight(userId,flight)
+      alert("flight booked sucessfully")
     } catch (err) {
       console.log(err)
     }

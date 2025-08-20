@@ -6,7 +6,7 @@ const userDetails = async (id)=>{
     try {
         const url = `${baseURL}/users/${id}`
         const res = await axios.get(url)
-        // console.log(url)
+        console.log(url)
         return res.data
     } catch (err) {
         console.log(err)
@@ -45,9 +45,20 @@ const bookFlight = async(id, flight)=>{
     }
 }
 
+const cancelFlight = async(id, flight) => {
+    try {
+        const url = `${baseURL}/users/cancelFlight/${id}`
+        const res = await axios.delete(url, flight)
+        return res
+    } catch (err) {
+        return err
+    }
+}
+
 export {
     userDetails,
     updateUser,
     deleteAccount,
-    bookFlight
+    bookFlight,
+    cancelFlight
 }
