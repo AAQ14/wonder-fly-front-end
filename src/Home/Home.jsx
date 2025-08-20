@@ -1,4 +1,6 @@
 import { Carousel } from "flowbite-react";
+import { Link } from "react-router";
+
 
 function Home() {
   return (
@@ -26,8 +28,13 @@ function Home() {
           <img src="https://images.unsplash.com/photo-1600520611035-84157ad4084d?q=80&w=2831&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
         </div>
 
-
       </Carousel>
+
+      <div className="welcome">
+      <h1>Fly with WonderFly</h1>
+      <p>To the new seven wonders !</p>
+      <Link to="/flights">Explore Flights</Link>
+      </div>
     </div>
   );
 }
