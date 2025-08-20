@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'flowbite/dist/flowbite.css';
+
+
 body {
   background-color: #fcf9f5;
     font-family: "Raleway", sans-serif;
@@ -41,6 +44,7 @@ label{
     font-size: 20px;
 }
 input{
+  background-color:#ffffff ;
     font-family: "Raleway", sans-serif;;
     font-size: 17px;
     display: flex;
@@ -79,7 +83,7 @@ button:hover {
 }
 
 .Nav2{
-  width: 1075px;
+  width: 1100px;
   margin-bottom: 30px;
   height: 60px;
    background-image: url('images/image3.jpg');
@@ -108,7 +112,7 @@ button:hover {
 
 
 .Nav{
-  width: 1075px;
+  width: 1100px;
   margin-bottom: 30px;
   height: 60px;
    background-image: url('images/image3.jpg');
@@ -158,3 +162,4 @@ font-family: "Raleway", sans-serif;
 cursor: pointer;
 justify-content: center;
 }
+
