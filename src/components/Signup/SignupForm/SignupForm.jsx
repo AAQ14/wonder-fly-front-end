@@ -31,6 +31,8 @@ function SignUp() {
 
   return (
     <form onSubmit={handleSubmit}>
+       <div className='container'>
+        <div className='second'>
       <h2>Sign Up</h2>
       <label htmlFor="FirstName">First Name</label>
       <input
@@ -62,6 +64,8 @@ function SignUp() {
         required
       />
       <button type="submit">Sign Up</button>
+    </div>
+    </div>
     </form>
   )
 }

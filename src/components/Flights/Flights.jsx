@@ -57,7 +57,7 @@ const countriesOption = Array.isArray(flights)
     <button onClick={handleFormView}>Add Flight</button>
     <h3>Flights</h3>
 
-    <label htmlFor="From">From:</label>
+    <label htmlFor="From">From</label>
     <select value={fromFilter} onChange={(event)=>setFromFilter(event.target.value)}>
       <option value="">All</option>
       {countriesOption.map((country,index)=>(
@@ -65,7 +65,7 @@ const countriesOption = Array.isArray(flights)
       ))}
     </select>
 
-    <label htmlFor="To">To:</label>
+    <label htmlFor="To">To</label>
      <select value={toFilter} onChange={(event)=>setToFilter(event.target.value)}>
       <option value="">All</option>
       {countriesOption.map((country,index)=>(
