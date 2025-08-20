@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
+import '../../../style/login.css'
 
 function LoginForm({ onLogin }) {
   const [email, setemail] = useState('')
@@ -24,25 +25,34 @@ function LoginForm({ onLogin }) {
   }
 
   return (
+    <div className='container'>
     <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
+      <div className='second'>
+      <h1>Login</h1>
+      <br /><br />
       <label htmlFor="Emai">Email</label>
+      <br />
       <input 
        type="email"
         value={email}
         onChange={event => setemail(event.target.value)}
         required
       />
+      <br />
       <label htmlFor="Emai">Password</label>
+      <br />
       <input 
         type="password"
         value={password}
         onChange={event => setPassword(event.target.value)}
         required
       />
+      <br /><br />
       
       <button type="submit">Login</button>
+    </div>
     </form>
+    </div>
   )
 }
 
