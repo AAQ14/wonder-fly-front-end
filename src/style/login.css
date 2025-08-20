@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'flowbite/dist/flowbite.css';
+
+
 body {
   background-color: #fcf9f5;
     font-family: "Raleway", sans-serif;
@@ -41,6 +44,7 @@ label{
     font-size: 20px;
 }
 input{
+  background-color:#ffffff ;
     font-family: "Raleway", sans-serif;;
     font-size: 17px;
     display: flex;
@@ -79,7 +83,7 @@ button:hover {
 }
 
 .Nav2{
-  width: 1075px;
+  width: 1100px;
   margin-bottom: 30px;
   height: 60px;
    background-image: url('images/image3.jpg');
@@ -108,7 +112,7 @@ button:hover {
 
 
 .Nav{
-  width: 1075px;
+  width: 1100px;
   margin-bottom: 30px;
   height: 60px;
    background-image: url('images/image3.jpg');
@@ -157,4 +161,52 @@ button:hover {
 font-family: "Raleway", sans-serif;
 cursor: pointer;
 justify-content: center;
+}
+
+.welcome{
+  margin-top: 50px;
+display: flex;
+align-items: center;
+ flex-direction: column;
+justify-content: center;
+}
+
+.welcome h1{
+  color:#0F253D ;
+font-size: 50px;
+}
+
+@keyframes color-change {
+  0% { color: #AD1211; }
+  50% { color:#D3D3D2 ; }
+  100% { color: #AD1211; }
+}
+
+.welcome p{
+  color: #0F253D;
+  margin-top: 30px;
+font-size: 30px;
+animation: color-change 3s infinite;
+}
+
+.welcome a{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   color:#FAF9F6;
+  font-size: 27px;
+  border:none;
+  height: 60px;
+  width: 230px;
+  border-radius: 30px;
+  background-color: #AD1211;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
+    
+}
+
+.welcome a:hover {
+    background-color:#D6D7D3;
+    color: #0F253D;
 }
