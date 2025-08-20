@@ -2,13 +2,13 @@
 body {
   background-color: #fefbf8;
     font-family: "Raleway", sans-serif;
-  display: flex;
+     display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .container {
-  background-image: url('./images/image.png');
+  background-image: url('./images/image2.png');
   width: 1100px;
   height: 700px;
   border-radius: 20px;
@@ -33,7 +33,7 @@ body {
   z-index: 1;
 }
 
-h1 {
+.title {
     font-size: 50px;
   color: #0F253D;
 }
@@ -54,7 +54,7 @@ input{
 form{
   color: #0F253D;
 }
-button{
+.Btn{
      font-family: "Raleway", sans-serif;;
     margin-top: 10px;
      border: none; 
@@ -69,11 +69,39 @@ button{
      width: 250px;
     height: 60px;
     border-radius: 30px;
-    
+    cursor: pointer;;
     transition: background-color 0.2s ease;
-    transition: color 0.2 ease;
+    
 }
 
 button:hover {
     background-color:#969FA8;
+}
+
+.Nav2{
+  width: 1075px;
+  margin-bottom: 30px;
+  height: 60px;
+   background-image: url('images/image3.jpg');
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-left: 30px;
+  border-radius: 30px;
+}
+.Nav2 a{
+  color: #0F253D;
+  text-decoration: none;
+  border-radius: 30px;
+  height: 35px;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ transition: background-color 0.2s ease;
+ transition: color 0.2 ease;
+}
+.Nav2 a:hover {
+  color:#FAF9F6;
+    background-color: #AD1211;
 }
