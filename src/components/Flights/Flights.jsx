@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import FlightForm from './FlightForm/FlightForm'
 import { index, deleteFlight } from '../../services/flightService'
 
-const Flights = () => {
+const Flights = ({userType}) => {
   const [flights, setFlights] = useState([])
   const [formIsShown, setFormIsShown] = useState(false)
   const [selected, setSelected] = useState(null)
@@ -21,8 +21,10 @@ const Flights = () => {
     }
   }
 
+
   useEffect(()=>{
     getAllFlights()
+    // getUserType()
   },[])
 
   const handleSelect = (flight) => {
@@ -54,7 +56,10 @@ const countriesOption = Array.isArray(flights)
     <FlightForm getAllFlights={getAllFlights} handleFormView={handleFormView} selected={selected} setFormIsShown={setFormIsShown} setSelected={setSelected}/> :
     <>
     <br />
-    <button onClick={handleFormView}>Add Flight</button>
+    
+    {/* I am not getting the user type until i refresh */}
+    
+    {userType==="admin" ? <button onClick={handleFormView}>Add Flight</button> :  null}
     <h3>Flights</h3>
 
     <label htmlFor="From">From</label>
@@ -80,8 +85,10 @@ const countriesOption = Array.isArray(flights)
       <p>to: {flight.to.country}</p>
       <p>date: {flight.date}</p>{console.log(flight.date)}
       <p>price: {flight.price}</p>
-      <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
-      <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
+          {userType==="admin" ? <> <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
+      <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button></>:  null}
+
+     
       </div>
     )) : <p>No available flights from {fromFilter} to {toFilter}</p>}
     
