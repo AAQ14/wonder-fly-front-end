@@ -54,7 +54,6 @@ const countriesOption = Array.isArray(flights)
     <FlightForm getAllFlights={getAllFlights} handleFormView={handleFormView} selected={selected} setFormIsShown={setFormIsShown} setSelected={setSelected}/> :
     <>
     <br />
-    <button onClick={handleFormView}>Add Flight</button>
     <h3>Flights</h3>
 
     <label htmlFor="From">From</label>
@@ -73,7 +72,7 @@ const countriesOption = Array.isArray(flights)
       ))}
     </select>
     <button onClick={() => { setFromFilter(''); setToFilter('') }}>Reset</button>
-
+      <button onClick={handleFormView}>Add Flight</button>
     {filteredFlights.length? filteredFlights.map((flight, index) => (
       <div key={index} style={{cursor: 'pointer', color: '#7a57c5ff'}} onClick={() =>{console.log(flight); handleSelect(flight)}}>
       <p>from: {flight.from.country}</p>
