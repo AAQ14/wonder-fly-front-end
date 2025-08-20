@@ -26,7 +26,6 @@ const Flights = ({userType, userId}) => {
 
   useEffect(()=>{
     getAllFlights()
-    // getUserType()
   },[])
 
   const handleSelect = (flight) => {
