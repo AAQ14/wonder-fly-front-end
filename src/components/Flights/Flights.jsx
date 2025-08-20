@@ -54,7 +54,6 @@ const countriesOption = Array.isArray(flights)
     <FlightForm getAllFlights={getAllFlights} handleFormView={handleFormView} selected={selected} setFormIsShown={setFormIsShown} setSelected={setSelected}/> :
     <>
     <br />
-    <h3>Flights</h3>
 
     <label htmlFor="From">From</label>
     <select value={fromFilter} onChange={(event)=>setFromFilter(event.target.value)}>

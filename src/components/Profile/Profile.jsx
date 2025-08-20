@@ -13,7 +13,7 @@ const Profile = ({ userId, onLogout }) => {
     try {
       console.log("USER ID: ", userId)
       const details = await userDetails(userId);
-    console.log("this is user", details);
+      console.log("this is user", details);
 
       setUser(details);
     } catch (err) {
@@ -30,32 +30,47 @@ const Profile = ({ userId, onLogout }) => {
     setFormIsShown(!formIsShown);
   };
 
-  
+
   return (
     <>
-      <h1>My profile</h1>
-      {formIsShown ? (
-        <ProfileForm  handleFormView={handleFormView}  user={user} getUserDetails={getUserDetails} userId={userId}/>
-      ) : Object.keys(user).length ? (
-          <div >
-            <p>First name: {user.firstName}</p>
-            <p>Last name: {user.lastName}</p>
-            <p>Email: {user.email}</p>
-            <div className="Dbtn">
-          <DeleteAccountButton
-          userId={userId}
-          getUserDetails={getUserDetails}
-          onLogout={onLogout}
-          />
+      <div className="containerP">
+        {formIsShown ? (
+          <ProfileForm handleFormView={handleFormView} user={user} getUserDetails={getUserDetails} userId={userId} />
+        ) : Object.keys(user).length ? (
+          <div className="profile" >
+            <div class="header"></div>
+            <div className="content" >
+            <div className="pfp">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+              />
+            </div>
+            <h2>{user.firstName} {user.lastName}</h2>
+            <p className="email">{user.email}</p>
+
+            <div className="options">
+              <div className="Dbtn">
+                <DeleteAccountButton
+                  userId={userId}
+                  getUserDetails={getUserDetails}
+                  onLogout={onLogout}
+                />
+              </div>
+            <div className="Updbtn">
+              <button onClick={handleFormView}>Update Account</button>
+            </div>
+            </div>
+          </div>
           </div>
 
-            <button onClick={handleFormView}>Update info</button>
-          </div>
-      ) : (
-        <FadeLoader color="#87CEEB" />
-      )}
+
+        ) : (
+          <FadeLoader color="#ad1211" />
+        )}
+      </div>
+
     </>
   );
 };
 
-export default Profile;
+export default Profile; 

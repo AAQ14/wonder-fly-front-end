@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import 'flowbite/dist/flowbite.css';
 
 
 body {
@@ -111,7 +111,8 @@ button:hover {
   text-decoration: none;
   border-radius: 30px;
   height: 35px;
-  width: 70px;
+  width: fit-content;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,7 +143,8 @@ button:hover {
   text-decoration: none;
   border-radius: 30px;
   height: 35px;
-  width: 80px;
+  width: fit-content;
+  padding: 5px;
   margin-right: 18px;
   display: flex;
   align-items: center;
@@ -167,7 +169,7 @@ button:hover {
   color:#FAF9F6;
   font-size: 17px;
   border:none;
-  height: 35px;
+  height: 47px;
   width: 80px;
   border-radius: 30px;
   background-color: #AD1211;
@@ -198,7 +200,7 @@ font-size: 50px;
 .welcome p{
   color: #0F253D;
   margin-top: 30px;
-font-size: 30px;
+font-size: 25px;
 animation: color-change 3s infinite;
 }
 
@@ -207,8 +209,8 @@ animation: color-change 3s infinite;
   display: flex;
   align-items: center;
   justify-content: center;
-   color:#FAF9F6;
-  font-size: 27px;
+   color:#E6E3DE;
+  font-size: 25px;
   border:none;
   height: 60px;
   width: 230px;
@@ -220,6 +222,126 @@ animation: color-change 3s infinite;
 }
 
 .welcome a:hover {
-    background-color:#D6D7D3;
+    background-color:#EAE7E2;
     color: #0F253D;
+}
+
+.containerP{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile{
+  margin: 70px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcf7f0;
+  border-radius:30px ;
+ height: 500px;
+ width: 900px;
+   box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+position: relative;
+}
+
+.header {
+  background-color: #ad1111;
+  position: absolute;
+  top: 0;
+  height: 500px;
+  width: 600px;
+  z-index: -2;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+
+.pfp img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile h2{
+  animation: change 4s infinite;
+  font-size: 50px;
+}
+
+@keyframes change {
+  0% { color: #0F253D; }
+  50% { color:#637485 ; }
+  100% { color: #0F253D; }
+}
+
+
+.profile p{
+  margin-top: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.Dbtn button{
+  color:#FAF9F6;
+  font-size: 19px;
+  border:none;
+  height: 60px;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 30px;
+  background-color: #AD1211;
+font-family: "Raleway", sans-serif;
+cursor: pointer;
+justify-content: center;
+}
+
+.Updbtn button{
+  color:#000000;
+  font-size: 19px;
+  border:none;
+  height: 60px;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 30px;
+  background-color: #DFDCD7;
+font-family: "Raleway", sans-serif;
+cursor: pointer;
+justify-content: center;
+}
+
+.options{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+
+
+.header {
+  background-image: url(https://images.pexels.com/photos/9710307/pexels-photo-9710307.jpeg);
+  background-size: cover;
+  position: absolute;
+  height: 135px;
+  width: 900px;
+  z-index: 0;
+ border-top-left-radius: 30px;
+ border-top-right-radius: 30px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
