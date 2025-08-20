@@ -41,11 +41,14 @@ const Profile = ({ userId, onLogout }) => {
             <p>First name: {user.firstName}</p>
             <p>Last name: {user.lastName}</p>
             <p>Email: {user.email}</p>
+            <div className="Dbtn">
           <DeleteAccountButton
           userId={userId}
           getUserDetails={getUserDetails}
           onLogout={onLogout}
           />
+          </div>
+
             <button onClick={handleFormView}>Update info</button>
           </div>
       ) : (

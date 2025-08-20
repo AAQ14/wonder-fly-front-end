@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import 'flowbite/dist/flowbite.css';
+
 
 
 body {
@@ -17,6 +17,18 @@ body {
   border-radius: 20px;
   background-position: center;
   background-size: cover;
+}
+.containerS {
+  background-image: url('./images/image2.png');
+  width: 1100px;
+  height: 700px;
+  border-radius: 20px;
+  background-position: center;
+  background-size: cover;
+}
+.container h1{
+  font-size: 30px;
+  margin-bottom: 15px;
 }
 
 .second {
@@ -83,9 +95,10 @@ button:hover {
 }
 
 .Nav2{
+  font-size: 17px;
   width: 1100px;
   margin-bottom: 30px;
-  height: 60px;
+  height: 70px;
    background-image: url('images/image3.jpg');
   display: flex;
   align-items: center;
@@ -114,7 +127,7 @@ button:hover {
 .Nav{
   width: 1100px;
   margin-bottom: 30px;
-  height: 60px;
+  height: 70px;
    background-image: url('images/image3.jpg');
   display: flex;
   align-items: center;
@@ -124,7 +137,7 @@ button:hover {
   border-radius: 30px;
 }
 .Nav a{
-  font-size: 16px;
+  font-size: 17px;
   color: #0F253D;
   text-decoration: none;
   border-radius: 30px;
@@ -152,7 +165,7 @@ button:hover {
 .logoutbtn button{
   margin-right: 30px;
   color:#FAF9F6;
-  font-size: 16px;
+  font-size: 17px;
   border:none;
   height: 35px;
   width: 80px;
