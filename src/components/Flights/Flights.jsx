@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import FlightForm from './FlightForm/FlightForm'
-import { index, deleteFlight } from '../../services/flightService'
+import { index, deleteFlight  } from '../../services/flightService'
+import {bookFlight} from '../../services/userService'
 
-const Flights = ({userType}) => {
+const Flights = ({userType, userId}) => {
   const [flights, setFlights] = useState([])
   const [formIsShown, setFormIsShown] = useState(false)
   const [selected, setSelected] = useState(null)
+  
 
   //Filtering set👇
   const [fromFilter,setFromFilter]=useState('')
@@ -36,6 +38,14 @@ const Flights = ({userType}) => {
   const handleFormView = (flight)=>{
     if(!flight._id)setSelected(null)
     setFormIsShown(!formIsShown)
+  }
+
+  const handleBookTicket = async (flight)=>{
+    try {
+      await bookFlight(userId,flight)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   //Filtering 👇
@@ -84,6 +94,7 @@ const countriesOption = Array.isArray(flights)
       <p>to: {flight.to.country}</p>
       <p>date: {flight.date}</p>{console.log(flight.date)}
       <p>price: {flight.price}</p>
+      <button onClick={()=>handleBookTicket(flight)}>Book Ticket</button>
           {userType==="admin" ? <> <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
       <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button></>:  null}
 

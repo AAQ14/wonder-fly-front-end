@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 body {
-  background-color: #fefbf8;
+  background-color: #fcf9f5;
     font-family: "Raleway", sans-serif;
      display: flex;
   align-items: center;
@@ -55,7 +55,7 @@ form{
   color: #0F253D;
 }
 .Btn{
-     font-family: "Raleway", sans-serif;;
+     font-family: "Raleway", sans-serif;
     margin-top: 10px;
      border: none; 
     display: flex;
@@ -104,4 +104,57 @@ button:hover {
 .Nav2 a:hover {
   color:#FAF9F6;
     background-color: #AD1211;
+}
+
+
+.Nav{
+  width: 1075px;
+  margin-bottom: 30px;
+  height: 60px;
+   background-image: url('images/image3.jpg');
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-left: 30px;
+  border-radius: 30px;
+}
+.Nav a{
+  font-size: 16px;
+  color: #0F253D;
+  text-decoration: none;
+  border-radius: 30px;
+  height: 35px;
+  width: 80px;
+  margin-right: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ transition: background-color 0.2s ease;
+ transition: color 0.2 ease;
+}
+.Nav a:hover {
+  color:#FAF9F6;
+    background-color: #AD1211;
+}
+
+.logoutbtn{
+   justify-self: flex-end;
+}
+.nav-links{
+  display: flex;
+}
+
+.logoutbtn button{
+  margin-right: 30px;
+  color:#FAF9F6;
+  font-size: 16px;
+  border:none;
+  height: 35px;
+  width: 80px;
+  border-radius: 30px;
+  background-color: #AD1211;
+font-family: "Raleway", sans-serif;
+cursor: pointer;
+justify-content: center;
 }
