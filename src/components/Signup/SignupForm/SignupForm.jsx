@@ -33,13 +33,14 @@ function SignUp() {
     <form onSubmit={handleSubmit}>
        <div className='container'>
         <div className='second'>
-      <h2>Sign Up</h2>
+      <h1>Sign Up</h1>
       <label htmlFor="FirstName">First Name</label>
       <input
       value={firstName}
       onChange={event=>setFirstName(event.target.value)}
       required
       />
+      <br />
 
       <label htmlFor="LastName">Last Name</label>
   <input
@@ -47,6 +48,7 @@ function SignUp() {
       onChange={event=>setLastName(event.target.value)}
       required
       />
+      <br />
 
 <label htmlFor="Emai">Email</label>
       <input 
@@ -55,6 +57,7 @@ function SignUp() {
         onChange={event => setEmail(event.target.value)}
         required
       />
+      <br />
 
       <label htmlFor="Password">Password</label>
       <input 
@@ -63,6 +66,7 @@ function SignUp() {
         onChange={event => setPassword(event.target.value)}
         required
       />
+      <br />
       <button type="submit">Sign Up</button>
     </div>
     </div>
