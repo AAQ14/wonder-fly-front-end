@@ -1,6 +1,8 @@
 function Home() {
   return(
-    <h1>Wonderfly</h1>
+    <>
+  
+    </>
   ) 
 }
 
