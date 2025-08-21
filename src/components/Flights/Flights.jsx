@@ -54,7 +54,8 @@ const countriesOption = Array.isArray(flights)
     <FlightForm getAllFlights={getAllFlights} handleFormView={handleFormView} selected={selected} setFormIsShown={setFormIsShown} setSelected={setSelected}/> :
     <>
     <br />
-
+    <div className='filter'>
+      <div className='fromandto'>
     <label htmlFor="From">From</label>
     <select value={fromFilter} onChange={(event)=>setFromFilter(event.target.value)}>
       <option value="">All</option>
@@ -70,16 +71,30 @@ const countriesOption = Array.isArray(flights)
         <option key={index} value={country}>{country}</option>
       ))}
     </select>
+    </div>
     <button onClick={() => { setFromFilter(''); setToFilter('') }}>Reset</button>
+    </div>
+    <div className='addf'>
       <button onClick={handleFormView}>Add Flight</button>
+      </div>
     {filteredFlights.length? filteredFlights.map((flight, index) => (
-      <div key={index} style={{cursor: 'pointer', color: '#7a57c5ff'}} onClick={() =>{console.log(flight); handleSelect(flight)}}>
-      <p>from: {flight.from.country}</p>
-      <p>to: {flight.to.country}</p>
-      <p>date: {flight.date}</p>{console.log(flight.date)}
-      <p>price: {flight.price}</p>
-      <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
+      <div key={index} onClick={() =>{console.log(flight); handleSelect(flight)}}>
+        <div className='trip'>
+          <div className='trip2'>
+      <p>From: {flight.from.country}</p>
+      <p>To: {flight.to.country}</p>
+      <p>Date: {flight.date}</p>{console.log(flight.date)}
+      <p>Price: {flight.price}</p>
+      </div>
+      <div className='flightButtons'>
+      <div className='deleteFlight'>
       <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
+      </div>
+        <div className='updateFlight'>
+      <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
+      </div>
+      </div>
+      </div>
       </div>
     )) : <p>No available flights from {fromFilter} to {toFilter}</p>}
     

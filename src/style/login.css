@@ -345,3 +345,104 @@ justify-content: center;
   z-index: 1;
   text-align: center;
 }
+
+.filter{
+  color: #ffffff;
+  background-color:#11253C ;
+  height: 70px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter select{
+  color: #0F253D;
+}
+
+.filter button{
+  background-color:#AD1211;
+  border-radius: 30px;
+  height: 50px;
+  width: 80px;
+  font-size: 20px;
+  color: #DFDCD7;
+}
+
+.fromandto{
+  margin-left: 30px;
+}
+
+.fromandto select{
+  margin: 20px;
+  border:none;
+  border-radius: 30px;
+}
+
+.addf{
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addf button{
+   background-color:#AD1211;
+  border-radius: 30px;
+  height: 50px;
+  width: 160px;
+  font-size: 20px;
+  color: #DFDCD7;
+}
+
+.flightButtons button{
+  margin-left: 10px;
+    background-color:#AD1211;
+  border-radius: 30px;
+  height: 40px;
+  width: 140px;
+  font-size: 15px;
+  color: #DFDCD7;
+}
+
+.flightButtons{
+  margin-top: 30px;
+   display: flex;
+  flex-direction: row;
+}
+
+.updateFlight button{
+  background-color: #DFDCD7;
+  color: black;
+}
+
+.trip{
+   margin: 70px;
+   display: flex;
+  flex-direction: column;
+position: relative;
+  align-items: center;
+  justify-content: center;
+  border-radius:30px ;
+  flex-direction: column;
+}
+
+.trip2{
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:30px ;
+  flex-direction: column;
+   height: 150px;
+ width: 900px;
+ box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+background-color: #ECE9E4;
+}
+
+.trip2 p{
+  font-family: 'Courier New', Courier, monospace;
+  color: #0F253D;
+  font-weight: bold;
+  font-size: 17px;
+}
