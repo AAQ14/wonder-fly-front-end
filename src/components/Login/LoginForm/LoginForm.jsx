@@ -27,7 +27,7 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    <div className='container'>
+    <div className='containerS'>
     <form onSubmit={handleSubmit}>
       <div className='second'>
       <h1 className='title'>Login</h1>

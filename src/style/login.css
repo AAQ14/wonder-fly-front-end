@@ -18,6 +18,18 @@ body {
   background-position: center;
   background-size: cover;
 }
+.containerS {
+  background-image: url('./images/image2.png');
+  width: 1100px;
+  height: 700px;
+  border-radius: 20px;
+  background-position: center;
+  background-size: cover;
+}
+.container h1{
+  font-size: 30px;
+  margin-bottom: 15px;
+}
 
 .second {
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
@@ -83,9 +95,10 @@ button:hover {
 }
 
 .Nav2{
+  font-size: 17px;
   width: 1100px;
   margin-bottom: 30px;
-  height: 60px;
+  height: 70px;
    background-image: url('images/image3.jpg');
   display: flex;
   align-items: center;
@@ -98,7 +111,8 @@ button:hover {
   text-decoration: none;
   border-radius: 30px;
   height: 35px;
-  width: 70px;
+  width: fit-content;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,7 +128,7 @@ button:hover {
 .Nav{
   width: 1100px;
   margin-bottom: 30px;
-  height: 60px;
+  height: 70px;
    background-image: url('images/image3.jpg');
   display: flex;
   align-items: center;
@@ -124,12 +138,13 @@ button:hover {
   border-radius: 30px;
 }
 .Nav a{
-  font-size: 16px;
+  font-size: 17px;
   color: #0F253D;
   text-decoration: none;
   border-radius: 30px;
   height: 35px;
-  width: 80px;
+  width: fit-content;
+  padding: 5px;
   margin-right: 18px;
   display: flex;
   align-items: center;
@@ -152,9 +167,9 @@ button:hover {
 .logoutbtn button{
   margin-right: 30px;
   color:#FAF9F6;
-  font-size: 16px;
+  font-size: 17px;
   border:none;
-  height: 35px;
+  height: 47px;
   width: 80px;
   border-radius: 30px;
   background-color: #AD1211;
@@ -185,7 +200,7 @@ font-size: 50px;
 .welcome p{
   color: #0F253D;
   margin-top: 30px;
-font-size: 30px;
+font-size: 25px;
 animation: color-change 3s infinite;
 }
 
@@ -194,8 +209,8 @@ animation: color-change 3s infinite;
   display: flex;
   align-items: center;
   justify-content: center;
-   color:#FAF9F6;
-  font-size: 27px;
+   color:#E6E3DE;
+  font-size: 25px;
   border:none;
   height: 60px;
   width: 230px;
@@ -207,6 +222,281 @@ animation: color-change 3s infinite;
 }
 
 .welcome a:hover {
-    background-color:#D6D7D3;
+    background-color:#EAE7E2;
     color: #0F253D;
+}
+
+.containerP{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile{
+  margin: 70px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcf7f0;
+  border-radius:30px ;
+ height: 500px;
+ width: 900px;
+   box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+position: relative;
+}
+
+.header {
+  background-color: #ad1111;
+  position: absolute;
+  top: 0;
+  height: 500px;
+  width: 600px;
+  z-index: -2;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+
+.pfp img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile h2{
+  animation: change 4s infinite;
+  font-size: 50px;
+}
+
+@keyframes change {
+  0% { color: #0F253D; }
+  50% { color:#637485 ; }
+  100% { color: #0F253D; }
+}
+
+
+.profile p{
+  margin-top: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.Dbtn button{
+  color:#FAF9F6;
+  font-size: 19px;
+  border:none;
+  height: 60px;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 30px;
+  background-color: #AD1211;
+font-family: "Raleway", sans-serif;
+cursor: pointer;
+justify-content: center;
+}
+
+.Updbtn button{
+  color:#000000;
+  font-size: 19px;
+  border:none;
+  height: 60px;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 30px;
+  background-color: #DFDCD7;
+font-family: "Raleway", sans-serif;
+cursor: pointer;
+justify-content: center;
+}
+
+.options{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+
+
+.header {
+  background-image: url(https://images.pexels.com/photos/9710307/pexels-photo-9710307.jpeg);
+  background-size: cover;
+  position: absolute;
+  height: 135px;
+  width: 900px;
+  z-index: 0;
+ border-top-left-radius: 30px;
+ border-top-right-radius: 30px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.filter{
+  color: #ffffff;
+  background-color:#11253C ;
+  height: 70px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter select{
+  color: #0F253D;
+}
+
+.filter button{
+  background-color:#AD1211;
+  border-radius: 30px;
+  height: 50px;
+  width: 80px;
+  font-size: 20px;
+  color: #DFDCD7;
+}
+
+.fromandto{
+  margin-left: 30px;
+}
+
+.fromandto select{
+  margin: 20px;
+  border:none;
+  border-radius: 30px;
+}
+
+.addf{
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addf button{
+   background-color:#AD1211;
+  border-radius: 30px;
+  height: 50px;
+  width: 160px;
+  font-size: 20px;
+  color: #DFDCD7;
+}
+
+.flightButtons button{
+  margin-left: 10px;
+    background-color:#AD1211;
+  border-radius: 30px;
+  height: 40px;
+  width: 140px;
+  font-size: 15px;
+  color: #DFDCD7;
+}
+
+.flightButtons{
+  margin-top: 30px;
+   display: flex;
+  flex-direction: row;
+}
+
+.updateFlight button{
+  background-color: #DFDCD7;
+  color: black;
+}
+
+.trip{
+   margin: 70px;
+   display: flex;
+  flex-direction: column;
+position: relative;
+  align-items: center;
+  justify-content: center;
+  border-radius:30px ;
+  flex-direction: column;
+}
+
+.trip2{
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:30px ;
+  flex-direction: column;
+   height: 150px;
+ width: 900px;
+ box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+background-color: #ECE9E4;
+}
+
+.trip2 p{
+  font-family: 'Courier New', Courier, monospace;
+  color: #0F253D;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.message{
+  margin-top: 70px;
+  font-size: larger;
+}
+
+.Flightform{
+  border-radius: 30px;
+  margin: 70px;
+  padding: 40px;
+   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  background-color: #DFDCD7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Flightform input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.Flightform select{
+  height: 60px;
+  border:none;
+  border-radius: 30px;}
+
+.buttons{
+
+  display: flex;
+  flex-direction: row;
+}
+
+.fromandtoF{
+  gap: 60px;
+  display: flex;
+}
+.Date{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+gap: 10px;
+margin-bottom: 20px;
+}
+
+.Price{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+gap: 10px;
 }
