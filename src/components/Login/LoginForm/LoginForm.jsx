@@ -21,6 +21,7 @@ function LoginForm({ onLogin }) {
       onLogin(res.data.token)
       navigate('/flights')
     } catch (err) {
+      console.log(err)
       alert(err.response?.data?.message || 'Login failed')
     }
   }

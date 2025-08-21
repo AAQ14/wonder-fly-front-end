@@ -35,9 +35,30 @@ const deleteAccount=async(id)=>{
     }
 }
 
+const bookFlight = async(id, flight)=>{
+    try {
+        const url = `${baseURL}/users/bookFlight/${id}`
+        const res = await axios.post(url, flight)
+        return res
+    } catch (err) {
+        return err
+    }
+}
+
+const cancelFlight = async(id, flight) => {
+    try {
+        const url = `${baseURL}/users/cancelFlight/${id}`
+        const res = await axios.delete(url, flight)
+        return res
+    } catch (err) {
+        return err
+    }
+}
 
 export {
     userDetails,
     updateUser,
-    deleteAccount
+    deleteAccount,
+    bookFlight,
+    cancelFlight
 }

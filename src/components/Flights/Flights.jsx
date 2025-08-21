@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import FlightForm from './FlightForm/FlightForm'
-import { index, deleteFlight } from '../../services/flightService'
+import { index, deleteFlight  } from '../../services/flightService'
+import {bookFlight} from '../../services/userService'
 
-const Flights = () => {
+const Flights = ({userType, userId}) => {
   const [flights, setFlights] = useState([])
   const [formIsShown, setFormIsShown] = useState(false)
   const [selected, setSelected] = useState(null)
+  
 
   //Filtering set👇
   const [fromFilter,setFromFilter]=useState('')
@@ -20,6 +22,7 @@ const Flights = () => {
       console.log(err)
     }
   }
+
 
   useEffect(()=>{
     getAllFlights()
@@ -35,6 +38,15 @@ const Flights = () => {
   const handleFormView = (flight)=>{
     if(!flight._id)setSelected(null)
     setFormIsShown(!formIsShown)
+  }
+
+  const handleBookTicket = async (flight)=>{
+    try {
+      await bookFlight(userId,flight)
+      alert("flight booked sucessfully")
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   //Filtering 👇
@@ -56,6 +68,12 @@ const countriesOption = Array.isArray(flights)
     <br />
     <div className='filter'>
       <div className='fromandto'>
+    
+    {/* I am not getting the user type until i refresh */}
+    
+    {userType==="admin" ? <button onClick={handleFormView}>Add Flight</button> :  null}
+    
+
     <label htmlFor="From">From</label>
     <select value={fromFilter} onChange={(event)=>setFromFilter(event.target.value)}>
       <option value="">All</option>
