@@ -95,6 +95,8 @@ const countriesOption = Array.isArray(flights)
     <div className='addf'>
       <button onClick={handleFormView}>Add Flight</button>
       </div>
+
+      {/* //filter */}
     {filteredFlights.length? filteredFlights.map((flight, index) => (
       <div key={index} onClick={() =>{console.log(flight); handleSelect(flight)}}>
         <div className='trip'>
