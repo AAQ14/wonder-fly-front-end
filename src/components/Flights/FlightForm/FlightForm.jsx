@@ -67,8 +67,10 @@ const FlightForm = ({
   }
   return (
     <>
-      <h3> {selected ? "Update the flight" : "Add the flight"}</h3>
       <form onSubmit={handleSubmit}>
+    <div className="Flightform">
+      <div className="fromandtoF">
+      <div className="from">
         <label htmlFor="from">From: </label>
         <select name="from" value={formData.from} onChange={handleChange}>
           <option value="68a1479317f3896ce2244efd">Bahrain</option>
@@ -79,8 +81,9 @@ const FlightForm = ({
           <option value="68a1932664bc454b60482039">Peru</option>
           <option value="68a1933164bc454b6048203b">Rio de Janeiro</option>
         </select>
-
-        <label htmlFor="to">to: </label>
+        </div>
+        <div className="to">
+        <label htmlFor="to">To: </label>
         <select name="to" value={formData.to} onChange={handleChange}>
           <option value="68a1479317f3896ce2244efd">Bahrain</option>
           <option value="68a17e3a0b393e504857bf44">China</option>
@@ -90,7 +93,10 @@ const FlightForm = ({
           <option value="68a1932664bc454b60482039">Peru</option>
           <option value="68a1933164bc454b6048203b">Rio de Janeiro</option>
         </select>
-
+        </div>
+        </div>
+<br />
+<div className="Date">
         <label htmlFor="date">Date: </label>
         <input
           type="date"
@@ -99,8 +105,10 @@ const FlightForm = ({
           value={formData.Date}
           onChange={handleChange}
         ></input>
+        </div>
 
-        <label htmlFor="price">price: </label>
+<div className="Price">
+        <label htmlFor="price">Price: </label>
         <input
           name="price"
           id="price"
@@ -108,12 +116,18 @@ const FlightForm = ({
           value={formData.price}
           onChange={handleChange}
         ></input>
+        </div>
+        </div>
 
+        <div className="buttons">
         <button type="submit">
           {selected ? "Update flight" : "Add flight"}
         </button>
+      </div>
       </form>
-      <button onClick={()=>setFormIsShown(false)}>BACK</button>
+      <div className="BackButton">
+      <button onClick={()=>setFormIsShown(false)}>Back</button>
+  </div>
     </>
   );
 };

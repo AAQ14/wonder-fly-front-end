@@ -21,12 +21,13 @@ function LoginForm({ onLogin }) {
       onLogin(res.data.token)
       navigate('/flights')
     } catch (err) {
+      console.log(err)
       alert(err.response?.data?.message || 'Login failed')
     }
   }
 
   return (
-    <div className='container'>
+    <div className='containerS'>
     <form onSubmit={handleSubmit}>
       <div className='second'>
       <h1 className='title'>Login</h1>
