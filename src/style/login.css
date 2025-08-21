@@ -446,3 +446,57 @@ background-color: #ECE9E4;
   font-weight: bold;
   font-size: 17px;
 }
+
+.message{
+  margin-top: 70px;
+  font-size: larger;
+}
+
+.Flightform{
+  border-radius: 30px;
+  margin: 70px;
+  padding: 40px;
+   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  background-color: #DFDCD7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Flightform input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.Flightform select{
+  height: 60px;
+  border:none;
+  border-radius: 30px;}
+
+.buttons{
+
+  display: flex;
+  flex-direction: row;
+}
+
+.fromandtoF{
+  gap: 60px;
+  display: flex;
+}
+.Date{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+gap: 10px;
+margin-bottom: 20px;
+}
+
+.Price{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+gap: 10px;
+}

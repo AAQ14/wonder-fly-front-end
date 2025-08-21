@@ -96,7 +96,8 @@ const countriesOption = Array.isArray(flights)
       </div>
       </div>
       </div>
-    )) : <p>No available flights from {fromFilter} to {toFilter}</p>}
+      
+    )) : <p className='message'>No available flights from {fromFilter} to {toFilter}</p>}
     
     </>}
     
