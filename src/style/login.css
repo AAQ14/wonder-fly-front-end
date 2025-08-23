@@ -505,3 +505,22 @@ margin-bottom: 20px;
   align-items: center;
 gap: 10px;
 }
+
+.BookAndCancelBtns{
+   background-color:#AD1211;
+  border-radius: 30px;
+  height: 50px;
+  width: 160px;
+  font-size: 20px;
+  color: #DFDCD7;
+  font-weight: 20px;
+    margin-top: 10px;
+     border: none; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;  
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    cursor: pointer;;
+    /* transition: background-color 0.2s ease; */
+}

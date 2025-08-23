@@ -24,21 +24,20 @@ const BookedFlights = ({userId}) => {
          setUser({...user, bookedFlights: updated})
          alert("flight cancelled successfully")
          await cancelFlight(userId, flight)
-        //  console.log(cancelFlight(userId, flight))
          
       } catch (err) {
         console.log(err)
       }
     }
   return (
-    <>
+    <> 
     {user? user.bookedFlights?.map(flight => (
-      <div>
+      <div  className='trip'>
         <p>flight number: {flight._id}</p>
         <p>from: {flight.from.country}</p>
         <p>to: {flight.to.country}</p>
         <p>date: {flight.date}</p>
-        <button onClick={()=>{ handleCancel(flight)}}>Cancel flight</button>
+         <div className='BookAndCancelBtns' onClick={()=>handleCancel(flight)}>Cancel flight</div>
       </div>
 )): null}
     </>
