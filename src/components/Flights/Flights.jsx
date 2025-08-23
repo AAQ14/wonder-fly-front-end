@@ -42,8 +42,8 @@ const Flights = ({userType, userId}) => {
 
   const handleBookTicket = async (flight)=>{
     try {
-      await bookFlight(userId,flight)
       alert("flight booked sucessfully")
+      await bookFlight(userId,flight)
     } catch (err) {
       console.log(err)
     }
@@ -106,6 +106,7 @@ const countriesOption = Array.isArray(flights)
       <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
       </div> : null}
       </div>
+      <div className='BookAndCancelBtns' onClick={()=>handleBookTicket(flight)}>Book Ticket</div>
       </div>
       </div>
       
