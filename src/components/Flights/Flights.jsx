@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import FlightForm from './FlightForm/FlightForm'
 import { index, deleteFlight  } from '../../services/flightService'
 import {bookFlight} from '../../services/userService'
+import { FadeLoader } from "react-spinners";
 
 const Flights = ({userType, userId}) => {
   const [flights, setFlights] = useState([])
@@ -110,7 +111,7 @@ const countriesOption = Array.isArray(flights)
       </div>
       </div>
       
-    )) : <p className='message'>No available flights from {fromFilter} to {toFilter}</p>}
+    )) :  <FadeLoader color="#ad1211" />}
     
     </>}
     

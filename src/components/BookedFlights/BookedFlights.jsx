@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import {userDetails, cancelFlight} from '../../services/userService'
-
+import { FadeLoader } from "react-spinners";
 
 
 const BookedFlights = ({userId}) => {
@@ -39,7 +39,7 @@ const BookedFlights = ({userId}) => {
         <p>date: {flight.date}</p>
          <div className='BookAndCancelBtns' onClick={()=>handleCancel(flight)}>Cancel flight</div>
       </div>
-)): null}
+)): <FadeLoader />}
     </>
   )
 }
