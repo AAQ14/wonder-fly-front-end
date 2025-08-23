@@ -39,7 +39,7 @@ const App = () => {
       const decodedToken = jwtDecode(token);
       setUserId(decodedToken.id);
       setUserType(decodedToken.userType);
-      // console.log(decodedToken.id);
+      console.log(decodedToken.id);
       // console.log(decodedToken.userType);
     }
   }, []);
@@ -48,8 +48,7 @@ const App = () => {
     <>
       <Router>
         <div>
-          {token ? <LogoutButton onLogout={handleLogout} /> : null}
-          <NavBar token={token} />
+          <NavBar token={token} onLogout={handleLogout}/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
