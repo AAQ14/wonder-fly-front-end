@@ -97,6 +97,7 @@ form{
 
 button:hover {
     background-color:#969FA8;
+    cursor: pointer;
 }
 
 .Nav2{
@@ -521,6 +522,6 @@ gap: 10px;
     justify-content: center;
     line-height: 1;  
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    cursor: pointer;;
-    /* transition: background-color 0.2s ease; */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
