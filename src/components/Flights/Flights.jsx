@@ -68,11 +68,6 @@ const countriesOption = Array.isArray(flights)
     <br />
     <div className='filter'>
       <div className='fromandto'>
-    
-    {/* I am not getting the user type until i refresh */}
-    
-    {userType==="admin" ? <button onClick={handleFormView}>Add Flight</button> :  null}
-    
 
     <label htmlFor="From">From</label>
     <select value={fromFilter} onChange={(event)=>setFromFilter(event.target.value)}>
@@ -92,9 +87,7 @@ const countriesOption = Array.isArray(flights)
     </div>
     <button onClick={() => { setFromFilter(''); setToFilter('') }}>Reset</button>
     </div>
-    <div className='addf'>
-      <button onClick={handleFormView}>Add Flight</button>
-      </div>
+    {userType === "admin" ? <div className='addFlight'><button onClick={handleFormView}>Add flight</button></div> : null}
     {filteredFlights.length? filteredFlights.map((flight, index) => (
       <div key={index} onClick={() =>{console.log(flight); handleSelect(flight)}}>
         <div className='trip'>
@@ -105,12 +98,13 @@ const countriesOption = Array.isArray(flights)
       <p>Price: {flight.price}</p>
       </div>
       <div className='flightButtons'>
-      <div className='deleteFlight'>
+       {userType === "admin" ? <div className='deleteFlight'>
       <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
-      </div>
-        <div className='updateFlight'>
+      </div> : null}
+
+      {userType === "admin" ?  <div className='updateFlight'>
       <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
-      </div>
+      </div> : null}
       </div>
       </div>
       </div>
