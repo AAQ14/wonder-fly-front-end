@@ -40,7 +40,7 @@ const FlightForm = ({
     setFormData({
       from: "",
       to: "",
-      Date: "",
+      date: "",
       price: "",
     });
     if (res.status == 201) {
@@ -67,12 +67,11 @@ const FlightForm = ({
   }
   return (
     <>
+      {console.log("this is form data", formData.from.country)}
+        <h3>{selected ? "Update the flight": "Add a flight"}</h3> 
       <form onSubmit={handleSubmit}>
-    <div className="Flightform">
-      <div className="fromandtoF">
-      <div className="from">
         <label htmlFor="from">From: </label>
-        <select name="from" value={formData.from} onChange={handleChange}>
+        <select name="from" value={formData.from._id} onChange={handleChange}>
           <option value="68a1479317f3896ce2244efd">Bahrain</option>
           <option value="68a17e3a0b393e504857bf44">China</option>
           <option value="68a1930c64bc454b60482035">Jordan</option>
@@ -81,10 +80,9 @@ const FlightForm = ({
           <option value="68a1932664bc454b60482039">Peru</option>
           <option value="68a1933164bc454b6048203b">Rio de Janeiro</option>
         </select>
-        </div>
-        <div className="to">
-        <label htmlFor="to">To: </label>
-        <select name="to" value={formData.to} onChange={handleChange}>
+
+        <label htmlFor="to">to: </label>
+        <select name="to" value={formData.to._id} onChange={handleChange}>
           <option value="68a1479317f3896ce2244efd">Bahrain</option>
           <option value="68a17e3a0b393e504857bf44">China</option>
           <option value="68a1930c64bc454b60482035">Jordan</option>
@@ -93,22 +91,19 @@ const FlightForm = ({
           <option value="68a1932664bc454b60482039">Peru</option>
           <option value="68a1933164bc454b6048203b">Rio de Janeiro</option>
         </select>
-        </div>
-        </div>
-<br />
-<div className="Date">
+
         <label htmlFor="date">Date: </label>
         <input
+        value={formData.date}
           type="date"
           name="date"
           id="date"
-          value={formData.Date}
           onChange={handleChange}
-        ></input>
-        </div>
+          ></input>
+         {selected ? <input value={selected.date} ></input>: null} 
+        
 
-<div className="Price">
-        <label htmlFor="price">Price: </label>
+        <label htmlFor="price">price: </label>
         <input
           name="price"
           id="price"
@@ -116,18 +111,12 @@ const FlightForm = ({
           value={formData.price}
           onChange={handleChange}
         ></input>
-        </div>
-        </div>
 
-        <div className="buttons">
         <button type="submit">
           {selected ? "Update flight" : "Add flight"}
         </button>
-      </div>
       </form>
-      <div className="BackButton">
-      <button onClick={()=>setFormIsShown(false)}>Back</button>
-  </div>
+      <button onClick={()=>setFormIsShown(false)}>BACK</button>
     </>
   );
 };
