@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { userDetails, cancelFlight } from "../../services/userService";
 import { FadeLoader } from "react-spinners";
+import  dayjs from "dayjs";
 
 const BookedFlights = ({ userId }) => {
   const [user, setUser] = useState({});
@@ -42,6 +43,8 @@ const BookedFlights = ({ userId }) => {
             <p>from: {flight.from.country}</p>
             <p>to: {flight.to.country}</p>
             <p>date: {flight.date}</p>
+            {/* <p>{dayjs(flight.date).format("MM/DD/YYYY")}</p> */}
+            <p>price: {flight.price}</p>
             <div
               className="BookAndCancelBtns"
               onClick={() => handleCancel(flight)}
