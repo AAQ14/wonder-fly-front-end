@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { create, updateFlight } from "../../../services/flightService";
+import  dayjs from "dayjs";
+
 
 const FlightForm = ({
   getAllFlights,
@@ -19,6 +21,7 @@ const FlightForm = ({
   const [formData, setFormData] = useState(selected ? selected : initialState);
 
   const handleChange = (evt) => {
+    console.log(evt.target.value)
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
     console.log(formData);
   };
@@ -94,13 +97,12 @@ const FlightForm = ({
 
         <label htmlFor="date">Date: </label>
         <input
-        value={formData.date}
+        value={dayjs(formData.date).format("YYYY-MM-DD")}
           type="date"
           name="date"
           id="date"
           onChange={handleChange}
           ></input>
-         {selected ? <input value={selected.date} ></input>: null} 
         
 
         <label htmlFor="price">price: </label>
