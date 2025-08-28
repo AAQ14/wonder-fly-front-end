@@ -26,6 +26,7 @@ function SignUp() {
       navigate('/login')
     } catch (err) {
       alert(err.response?.data?.message || 'Registration failed')
+      console.log(err)
     }
   }
 
