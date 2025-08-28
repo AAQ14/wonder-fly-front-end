@@ -95,7 +95,7 @@ form{
     
 }
 
-button:hover {
+.Btn:hover {
     background-color:#969FA8;
     cursor: pointer;
 }
@@ -524,4 +524,71 @@ gap: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     cursor: pointer;
     transition: background-color 0.2s ease;
+}
+.BookAndCancelBtns:hover{
+   background-color:#969FA8;
+    cursor: pointer;
+}
+
+hr{
+  margin-top: 40px;
+  width: 100%;
+  border-top: 2px solid #E0DDD9;
+}
+
+.BookAndCancelBtns2{
+   background-color:#AD1211;
+  border-radius: 30px;
+  height: 50px;
+  width: 160px;
+  font-size: 20px;
+  color: #DFDCD7;
+  font-weight: 20px;
+    margin-top: 40px;
+     border: none; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;  
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.BookAndCancelBtns2:hover{
+   background-color:#969FA8;
+    cursor: pointer;
+}
+
+.trip3{
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:30px ;
+  flex-direction: column;
+   height: 170px;
+ width: 900px;
+ box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+background-color: #ECE9E4;
+}
+
+.trip3 p{
+  font-family: 'Courier New', Courier, monospace;
+  color: #0F253D;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.bookedflightsh1{
+color: #11253C;
+display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+animation: color-change1 4s infinite;
+}
+
+@keyframes color-change1 {
+  0% { color: #11253C; }
+  50% { color:#60605f ; }
+  100% { color: #11253C; }
 }
