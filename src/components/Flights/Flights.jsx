@@ -88,7 +88,6 @@ const countriesOption = Array.isArray(flights)
     </div>
     <button onClick={() => { setFromFilter(''); setToFilter('') }}>Reset</button>
     </div>
-    {userType === "admin" ? <div className='addFlight'><button onClick={handleFormView}>Add flight</button></div> : null}
     {filteredFlights.length? filteredFlights.map((flight, index) => (
       <div key={index} onClick={() =>{console.log(flight); handleSelect(flight)}}>
         <div className='trip'>
@@ -107,7 +106,8 @@ const countriesOption = Array.isArray(flights)
       <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
       </div> : null}
       </div>
-      <div className='BookAndCancelBtns' onClick={()=>handleBookTicket(flight)}>Book Ticket</div>
+      <div className='BookAndCancelBtns' onClick={()=>handleBookTicket(flight)}>Book Ticket </div>
+      <hr />
       </div>
       </div>
       
