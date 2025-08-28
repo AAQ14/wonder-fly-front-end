@@ -106,7 +106,8 @@ const countriesOption = Array.isArray(flights)
       <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
       </div> : null}
       </div>
-      <div className='BookAndCancelBtns' onClick={()=>handleBookTicket(flight)}>Book Ticket</div>
+      <div className='BookAndCancelBtns' onClick={()=>handleBookTicket(flight)}>Book Ticket </div>
+      <hr />
       </div>
       </div>
       

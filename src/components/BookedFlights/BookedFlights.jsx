@@ -7,6 +7,7 @@ import  dayjs from "dayjs";
 const BookedFlights = ({ userId }) => {
   const [user, setUser] = useState({});
 
+  console.log(user.firstName)
   const getUser = async () => {
     try {
       const userFound = await userDetails(userId);
@@ -34,19 +35,25 @@ const BookedFlights = ({ userId }) => {
   };
   return (
     <>
+    <div className="bookedflightsh1">
+    <h1>{user?.firstName}'s Booked Flights</h1>
+    </div>
       { user?.bookedFlights?.length === 0 ? (
         <p>no flights booked</p>
       ) : Object.keys(user).length  ? (
+          
         user.bookedFlights?.map((flight) => (
           <div className="trip">
-            <p>flight number: {flight._id}</p>
-            <p>from: {flight.from.country}</p>
-            <p>to: {flight.to.country}</p>
-            <p>date: {flight.date}</p>
+            <div className="trip3">
+            <p>Flight number: {flight._id}</p>
+            <p>From: {flight.from.country}</p>
+            <p>To: {flight.to.country}</p>
+            <p>Date: {flight.date}</p>
             {/* <p>{dayjs(flight.date).format("MM/DD/YYYY")}</p> */}
-            <p>price: {flight.price}</p>
+            <p>Price: {flight.price}</p>
+          </div>
             <div
-              className="BookAndCancelBtns"
+              className="BookAndCancelBtns2"
               onClick={() => handleCancel(flight)}
             >
               Cancel flight
