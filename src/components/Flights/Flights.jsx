@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import FlightForm from './FlightForm/FlightForm'
 import { index, deleteFlight  } from '../../services/flightService'
 import {bookFlight} from '../../services/userService'
+import { FadeLoader } from "react-spinners";
 
 const Flights = ({userType, userId}) => {
   const [flights, setFlights] = useState([])
@@ -42,8 +43,8 @@ const Flights = ({userType, userId}) => {
 
   const handleBookTicket = async (flight)=>{
     try {
-      await bookFlight(userId,flight)
       alert("flight booked sucessfully")
+      await bookFlight(userId,flight)
     } catch (err) {
       console.log(err)
     }
@@ -68,11 +69,6 @@ const countriesOption = Array.isArray(flights)
     <br />
     <div className='filter'>
       <div className='fromandto'>
-    
-    {/* I am not getting the user type until i refresh */}
-    
-    {userType==="admin" ? <button onClick={handleFormView}>Add Flight</button> :  null}
-    
 
     <label htmlFor="From">From</label>
     <select value={fromFilter} onChange={(event)=>setFromFilter(event.target.value)}>
@@ -92,11 +88,6 @@ const countriesOption = Array.isArray(flights)
     </div>
     <button onClick={() => { setFromFilter(''); setToFilter('') }}>Reset</button>
     </div>
-    <div className='addf'>
-      <button onClick={handleFormView}>Add Flight</button>
-      </div>
-
-      {/* //filter */}
     {filteredFlights.length? filteredFlights.map((flight, index) => (
       <div key={index} onClick={() =>{console.log(flight); handleSelect(flight)}}>
         <div className='trip'>
@@ -107,17 +98,19 @@ const countriesOption = Array.isArray(flights)
       <p>Price: {flight.price}</p>
       </div>
       <div className='flightButtons'>
-      <div className='deleteFlight'>
+       {userType === "admin" ? <div className='deleteFlight'>
       <button onClick={async()=>{await deleteFlight(flight._id);getAllFlights()}}>delete flight</button>
-      </div>
-        <div className='updateFlight'>
+      </div> : null}
+
+      {userType === "admin" ?  <div className='updateFlight'>
       <button onClick={()=>{handleFormView(flight._id);handleSelect(flight);}}>edit flight</button>
+      </div> : null}
       </div>
-      </div>
+      <div className='BookAndCancelBtns' onClick={()=>handleBookTicket(flight)}>Book Ticket</div>
       </div>
       </div>
       
-    )) : <p className='message'>No available flights from {fromFilter} to {toFilter}</p>}
+    )) :  <FadeLoader color="#ad1211" />}
     
     </>}
     

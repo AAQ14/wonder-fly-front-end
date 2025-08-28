@@ -15,7 +15,7 @@ const NavBar = (props) => {
           <Link to="/profile">My profile</Link>
           </div>
           <div className="logoutbtn">
-            {props.token ? <LogoutButton onLogout={props.handleLogout} /> : null}
+            {props.token ? <LogoutButton onLogout={props.onLogout} /> : null}
           </div>
        </div>
         </>
