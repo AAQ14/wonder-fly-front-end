@@ -79,7 +79,7 @@ const App = () => {
                   <BookedFlights userId={userId}/>
                 </ProtectedRoute>
               }
-            />
+            /> 
           </Routes>
         </div>
       </Router>
